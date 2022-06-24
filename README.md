@@ -1,12 +1,3 @@
-API logiciel cablage
-
-Positionnez-vous dans le répertoire du projet et saisir `git init`
-Cela crée un nouveau sous-répertoire nommé .git qui contient tous les fichiers nécessaires au dépôt — un squelette de dépôt Git.
-
-`git clone https://thales-avs-dtp@dev.azure.com/thales-avs-dtp/Unicorn/_git/unicorn-api` Cette commande vous permets de cloner le dépots actuel du projet.
-
-Faite une modification peut important pour tester le git commit et git push.
-
 ## Quick start
 
 You can use the one you prefer between `npm` or `yarn`.
