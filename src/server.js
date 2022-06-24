@@ -18,13 +18,6 @@ connect(knex, {
     directory: './knex/migrations',
   },
 })
-  /* .then(async (db) => {
-    logger.info('Migrating DB to latest version');
-    await db.migrate.latest({});
-    // logger.info('Loading master data');
-    // await db.seed.run();
-    return db;
-  }) */
   .then(async (db) => {
     const routes = createRouter(db);
     const app = createApp(routes);
