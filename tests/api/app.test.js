@@ -48,7 +48,6 @@ test('POST /users -> 201 CREATED', async (t) => {
   // GIVEN = état initial avant l'appel
   const { app, db } = t.context;
   const newUser = {
-    tgi: 'Test_api',
     nom: 'test',
     prenom: 'AZ',
     email: 'Ae',
@@ -63,6 +62,6 @@ test('POST /users -> 201 CREATED', async (t) => {
   t.is(typeof res, 'object');
   t.is(res.status, HttpStatus.OK);
   // AFTER = raz des modifs de l'état initial
-  const deletedNb = await db('USERS').where('tgi', 'Test_api').del();
+  const deletedNb = await db('USERS').where('nom', 'test').del();
   t.is(deletedNb, 1);
 });

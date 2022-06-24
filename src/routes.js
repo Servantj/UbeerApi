@@ -3,9 +3,7 @@ import createHttpError from 'http-errors';
 import HttpStatus from 'http-status-codes';
 
 import usersController from './controllers/users.controller';
-import cablageController from './controllers/cablages.controller';
-import wipController from './controllers/wips.controller';
-import equipementController from './controllers/equipements.controller';
+import beersController from './controllers/beers.controller';
 
 const createRouter = (db) => {
   const router = new Router();
@@ -22,31 +20,14 @@ const createRouter = (db) => {
 
   router.get('/users/:id', usersController.getByUser(db));
 
-  router.get('/cablage', cablageController.getCablage(db));
+  router.get('/beers', beersController.getBeers(db));
 
-  router.post('/cablage', cablageController.addCablage(db));
+  router.post('/beers', beersController.addBeers(db));
 
-  router.get('/cablage/clos', cablageController.getByClos(db));
+  router.put('/beer/:id', beersController.updateBeers(db));
 
-  router.get('/cablage/notClos', cablageController.getNotClos(db));
-
-  router.put('/cablage/:id', cablageController.updateCablage(db));
-
-  router.get('/cablage/:id', cablageController.getByCablage(db));
-
-  router.get('/wip', wipController.getWip(db));
-
-  router.post('/wip', wipController.addWip(db));
-
-  router.get('/wip/:ordre', wipController.getByOrder(db));
-
-  router.get('/equipement', equipementController.getEquipement(db));
-
-  router.post('/equipement', equipementController.addEquipement(db));
-
-  router.get('/equipement/:num_ordre', equipementController.getByEquipement(db));
-
-  router.put('/equipement/:num_order', equipementController.updateEquipement(db));
+  router.get('/beer/:id', beersController.getByBeer(db));
+  
 
   router.all('*', (req, res, next) => {
     next(createHttpError(HttpStatus.NOT_FOUND, 'Le chemin n`est pas valide'));
