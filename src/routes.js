@@ -4,6 +4,7 @@ import HttpStatus from 'http-status-codes';
 
 import usersController from './controllers/users.controller';
 import beersController from './controllers/beers.controller';
+import companysController from './controllers/companys.controller';
 
 const createRouter = (db) => {
   const router = new Router();
@@ -27,6 +28,14 @@ const createRouter = (db) => {
   router.put('/beer/:id', beersController.updateBeers(db));
 
   router.get('/beer/:id', beersController.getByBeer(db));
+  
+  router.get('/companys', companysController.getCompanys(db));
+
+  router.post('/companys', companysController.addCompanys(db));
+
+  router.put('/company/:id', companysController.updateCompanys(db));
+
+  router.get('/company/:id', companysController.getByCompany(db));
   
 
   router.all('*', (req, res, next) => {
